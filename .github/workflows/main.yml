@@ -1,0 +1,28 @@
+name: Echo Commands
+
+on:
+ push:
+    branches:
+      - '**'
+ pull_request:
+    branches:
+      - '**'
+
+jobs:
+ echo_commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Echo Commands
+        run: |
+          echo "On push, we did:"
+          echo "- Add new file"
+          echo "- Create new branch"
+          echo "- Merge new branch"
+
+          echo "On pull_request, we did:"
+          echo "- Add new file"
+          echo "- Create new branch"
+          echo "- Merge new branch"
