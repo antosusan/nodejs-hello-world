@@ -1,28 +1,14 @@
-name: Echo Commands
+name: Notify on Commit
 
 on:
- push:
+  push:
     branches:
-      - '**'
- pull_request:
-    branches:
-      - '**'
+      - main  
 
 jobs:
- echo_commands:
+  notify:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Echo Commands
-        run: |
-          echo "On push, we did:"
-          echo "- Add new file"
-          echo "- Create new branch"
-          echo "- Merge new branch"
-
-          echo "On pull_request, we did:"
-          echo "- Add new file"
-          echo "- Create new branch"
-          echo "- Merge new branch"
+    - name: Send Notification
+      run: echo "Ada commit baru pada branch main."
